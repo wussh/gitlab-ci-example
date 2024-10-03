@@ -1,0 +1,16 @@
+image: golang:1.23.1
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - go build -o myapp .
+  artifacts:
+    paths:
+      - myapp
+    expire_in: 1 week
+  cache:
+    paths:
+      - /go/pkg/mod
